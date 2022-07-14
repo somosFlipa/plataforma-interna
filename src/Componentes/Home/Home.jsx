@@ -1,12 +1,38 @@
 import React, {useContext } from 'react';
 import { Context } from '../Context/Context';
 
-function Home() {
-    const {recetas} = useContext(Context)
+import Card from '../Card/Card'
 
-    console.log(recetas)
+function Home() {
+    const recetas = useContext(Context)
+
+    // if(recetas.length !== 0){
+    //     const nombreReceta = recetas.map(n=>(
+    //         n.nombre
+    //     ))
+    //     // console.log( recetas.map(i=>(i.horaComer)))
+    //     console.log( nombreReceta)
+    // }
+
+    
   return (
-    <div>Home</div>
+    <div>
+        <h1>Home</h1>
+        {
+            recetas.map((detalles, key) => {
+                return (
+                  <>
+                    <Card
+                      key={key}
+                      nombre={detalles.nombre}
+                      dificultad={detalles.dificultad}
+                      tiempo={detalles.tiempo}
+                    />
+                  </>
+                );
+              })
+        }
+    </div>
   )
 }
 

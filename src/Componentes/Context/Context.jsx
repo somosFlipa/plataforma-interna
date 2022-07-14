@@ -7,22 +7,39 @@ export const Context = createContext({});
 
 export const ContextProvider = ({children}) => {
 
-    // const [recetas] = useState([])
-    let recetas = "hola"
+    const [recetas, setResetas] = useState([])
 
-    useEffect(()=> {
-    const obtenerDatos = async() => {
-      const datos = await getDocs(collection(db, 'recetas'));
-      datos.forEach((document) => {
-         console.log(document.data());        
-      });
-    }
-    obtenerDatos();
-  },[]);
+    // const obtenerDatos = async() => {
+    //   const recetas = await getDocs(collection(db, 'recetas'));
+    //   recetas.forEach((document) => {
+    //      console.log(document.data());        
+    //   });
+    // }
+    // obtenerDatos(setResetas);
+
+    useEffect(() => {
+        const listRecipe = [];
+        if(recetas.length === 0){
+          const obtenerDatos = async () => {
+            const data = await getDocs(collection(db, "recetas"));
+            data.docs.map((i) => {
+              listRecipe.push(i.data());
+            });
+            setResetas(listRecipe);
+          };
+          obtenerDatos();
+
+      }
+      }, [recetas]);
+
+      
+
+    
+
 
 
     return (
-        <Context.Provider value={recetas}>
+        <Context.Provider value={recetas }>
             {children}
         </Context.Provider>
     )
