@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs} from "firebase/firestore";
 import db from '../../firebase/firebase';
 
 export const Context = createContext({});
@@ -9,14 +9,7 @@ export const ContextProvider = ({children}) => {
 
     const [recetas, setResetas] = useState([])
 
-    // const obtenerDatos = async() => {
-    //   const recetas = await getDocs(collection(db, 'recetas'));
-    //   recetas.forEach((document) => {
-    //      console.log(document.data());        
-    //   });
-    // }
-    // obtenerDatos(setResetas);
-
+// Llamar a todas las recetas
     useEffect(() => {
         const listRecipe = [];
         if(recetas.length === 0){
@@ -32,14 +25,12 @@ export const ContextProvider = ({children}) => {
       }
       }, [recetas]);
 
-      
-
     
 
 
 
     return (
-        <Context.Provider value={recetas }>
+        <Context.Provider value={{recetas}}>
             {children}
         </Context.Provider>
     )
