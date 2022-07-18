@@ -1,0 +1,20 @@
+.cont-btns-x2{
+    display: inline;
+
+    position: relative;
+    left: 950px;
+    top: 10px;
+}
+
+.btnsx2{
+    display: inline;
+    
+}
+
+.btnsx2 img{
+    width: 213px;
+    height: 70px;
+    margin-right: -40px;
+    cursor: pointer;
+
+}

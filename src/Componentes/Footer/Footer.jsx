@@ -1,10 +1,10 @@
 import React from 'react'
 
-import "./footer.css"
+import "./Footer.css"
 
 function Footer() {
   return (
-    <div className='footer'><p> Desarrollado por <strong>FLIPA</strong>- Todos los derechos reservados </p></div>
+    <div className='footer'> <p> Desarrollado por <strong>FLIPA</strong>- Todos los derechos reservados </p></div>
   )
 }
 
