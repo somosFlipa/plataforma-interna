@@ -1,6 +1,8 @@
 import React from 'react'
 
-import Logo from "../../Media/PlanerEAT.svg"
+import Lupa from "../../Media/Lupa.svg"
+
+import Logo from "../../Media/PlannerEAT.svg"
 import "./HeaderSup.css"
 
 function HeaderSup() {
@@ -27,7 +29,8 @@ function HeaderSup() {
             </div>
 
             <div className='nav-buscador'>
-                <input type="text" name="buscador" id="buscador" placeholder="🔍 Buscar"/>
+                <img className='lupa-buscador' src={Lupa} alt="lupa" />
+                <input type="text" name="buscador" id="buscador" placeholder="Buscar"/>
             </div>
         </div>
 

@@ -4,6 +4,10 @@ import Card from '../Card/Card';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from '../../firebase/firebase';
 
+import HeaderSup from '../HeaderSup/HeaderSup';
+import Botonesx2 from '../Botonesx2/Botonesx2';
+import NavLateral from '../NavLateral/NavLateral';
+import Footer from "../Footer/Footer";
 
 function Home() {
   

@@ -9,19 +9,19 @@ import "./NavLateral.css"
 function NavLateral() {
   return (
     <>
-        <div>
-            <div>
-                <img src="" alt="" />
-            </div>
+      <div className='cont-nav-lat'>
+          <div className='identificador-inicio'>
+            <img src="" alt="" />
+          </div>
 
-            <div>
-                <img src={IconCasa} alt="IconCasa"/>
+          <div className='btns-iconos'>
+            <img src={IconCasa} alt="IconCasa"/>
 
-                <img src={Icon3lineas} alt="Icon3lineas"/>
+            <img src={Icon3lineas} alt="Icon3lineas"/>
 
-                <img src={IconLapiz} alt="IconLapiz"/>
-            </div>
-        </div>
+            <img src={IconLapiz} alt="IconLapiz"/>
+          </div>
+      </div>
     </>
   )
 }
