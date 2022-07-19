@@ -27,7 +27,7 @@ function Home() {
     <div>
         <h1>Home</h1>
         <div>
-          <button  onClick={() => {filtrarHora("DESAYUNO")}} >Desayuno</button>
+          <button onClick={() => {filtrarHora("DESAYUNO")}} >Desayuno</button>
           <button onClick={() => {filtrarHora("ALMUERZO")}} >Alamuerzo</button>
           <button onClick={() => {filtrarHora("MERIENDA")}} >Merienda</button>
           <button onClick={() => {filtrarHora("CENA")}} >Cena</button>

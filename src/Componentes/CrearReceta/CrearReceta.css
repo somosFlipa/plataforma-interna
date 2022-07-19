@@ -1,0 +1,34 @@
+.datos{
+    position: absolute;
+    display: flex;
+    width: 80%;
+    height: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    flex-direction: column;
+    align-items: center;
+    
+   
+}
+
+.btn-agregar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    
+    position: absolute;
+    left: 80.09%;
+    right: 3.11%;
+    top: 86.74%;
+    bottom: 5.46%;
+    
+    /* Primario/Planner */
+    
+    background: #68D7E0;
+    border-radius: 4px;
+    
+}
