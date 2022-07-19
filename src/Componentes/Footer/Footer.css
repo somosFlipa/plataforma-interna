@@ -2,10 +2,13 @@
 
 .footer{
 
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 35vw;
+    width: 85vw;
+    position: absolute;
+    top: 818px;
+    left: 91px;
 }
 
 .footer p{

@@ -2,8 +2,8 @@
     display: inline;
 
     position: relative;
-    left: 950px;
-    top: 10px;
+    left: 1030px;
+    top: 35px;
 }
 
 .btnsx2{
@@ -17,4 +17,10 @@
     margin-right: -40px;
     cursor: pointer;
 
+}
+
+@media all and (min-width: 1560px){
+    .cont-btns-x2{
+        left: 1500px;
+    }
 }
