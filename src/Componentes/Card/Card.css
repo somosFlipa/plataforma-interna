@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.Ingrediente{
+    display: inline-block;
+    margin-left: 21px;
+}
+
+.flex-grupo-1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Ingrediente h3{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #383838;
+
+    margin-top: 7px;
+    margin-bottom: -3px;
+}
+
+.Ingrediente p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #383838;
+}
+
+.box {
+    width: 8px;
+    height: 48px;
+    position: relative;
+    top: -80px;
+    left: -20px;
+    background: #556677;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+.btn-modificar{
+    width: 123px;
+    height: 40px;
+
+    position: relative;
+    top: 15px;
+    left: -25px;
+
+    background-color: #68D7E0;
+    border: 1px solid #68D7E0;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.Ingrediente .cont-dificultad{
+    background-color: #3dd29e42;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 14px;
+    
+    color: #3DD29D;    
+
+    position: relative;
+    top: -30px;
+}
+
+.Ingrediente .punto-dificultad{
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 50px;
+    
+    color: #3DD29D;    
+    margin-right: -12px;
+
+    position: relative;
+    top: -2px;
+}
+
+.cont-clock-tiempo{
+    position: relative;
+    top: -27px;
+    left: 10px;
+}
+
+.cont-clock-tiempo img{
+    position: relative;
+    top: 3px;
+}

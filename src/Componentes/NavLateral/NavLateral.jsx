@@ -3,6 +3,7 @@ import React from 'react'
 import IconCasa from "../../Media/IconCasa.svg"
 import Icon3lineas from "../../Media/Icon3lineas.svg"
 import IconLapiz from "../../Media/IconLapiz.svg"
+import IconAvatar from "../../Media/Avatar.svg"
 
 import "./NavLateral.css"
 
@@ -11,7 +12,7 @@ function NavLateral() {
     <>
       <div className='cont-nav-lat'>
           <div className='identificador-inicio'>
-            <img src="" alt="" />
+            <img src={IconAvatar} alt="" />
           </div>
 
           <div className='btns-iconos'>

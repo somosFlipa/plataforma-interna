@@ -12,7 +12,7 @@ function HeaderSup() {
       
             if (e.key ==="Escape")e.target.value = ""
       
-            document.querySelectorAll(".ingredientes").forEach(ingre =>{
+            document.querySelectorAll(".Ingredientes").forEach(ingre =>{
       
                 ingre.textContent.toLowerCase().includes(e.target.value.toLowerCase())
                   ?ingre.classList.remove("filtro") :ingre.classList.add("filtro")
