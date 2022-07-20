@@ -40,14 +40,7 @@ function Home() {
   return (
     <>
     <div>
-<<<<<<< HEAD
-        <h1>Home</h1>
-        <div>
-          <button onClick={() => {filtrarHora("DESAYUNO")}} >Desayuno</button>
-          <button onClick={() => {filtrarHora("ALMUERZO")}} >Alamuerzo</button>
-          <button onClick={() => {filtrarHora("MERIENDA")}} >Merienda</button>
-          <button onClick={() => {filtrarHora("CENA")}} >Cena</button>
-=======
+
       <HeaderSup/>
       <NavLateral/>
       <Botonesx2/>
@@ -74,7 +67,6 @@ function Home() {
             <img src={ImgCena} alt='ImgCena'/>
           </button>
 
->>>>>>> manu
         </div>
 
         <div className="Ingredientes">
