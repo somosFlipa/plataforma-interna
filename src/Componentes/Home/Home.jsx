@@ -6,6 +6,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import db from '../../firebase/firebase';
 
 import HeaderSup from '../HeaderSup/HeaderSup';
+import LogoP from '../Logo/Logo';
 import Botonesx2 from '../Botonesx2/Botonesx2';
 import NavLateral from '../NavLateral/NavLateral';
 import Footer from "../Footer/Footer";
@@ -40,14 +41,7 @@ function Home() {
   return (
     <>
     <div>
-<<<<<<< HEAD
-        <h1>Home</h1>
-        <div>
-          <button onClick={() => {filtrarHora("DESAYUNO")}} >Desayuno</button>
-          <button onClick={() => {filtrarHora("ALMUERZO")}} >Alamuerzo</button>
-          <button onClick={() => {filtrarHora("MERIENDA")}} >Merienda</button>
-          <button onClick={() => {filtrarHora("CENA")}} >Cena</button>
-=======
+      <LogoP/>
       <HeaderSup/>
       <NavLateral/>
       <Botonesx2/>
@@ -74,7 +68,6 @@ function Home() {
             <img src={ImgCena} alt='ImgCena'/>
           </button>
 
->>>>>>> manu
         </div>
 
         <div className="Ingredientes">

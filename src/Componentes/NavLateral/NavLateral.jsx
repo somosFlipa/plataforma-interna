@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import IconCasa from "../../Media/IconCasa.svg"
 import Icon3lineas from "../../Media/Icon3lineas.svg"
 import IconLapiz from "../../Media/IconLapiz.svg"
@@ -16,11 +18,11 @@ function NavLateral() {
           </div>
 
           <div className='btns-iconos'>
-            <img src={IconCasa} alt="IconCasa"/>
+            <Link to={"/"}><img src={IconCasa} alt="IconCasa"/></Link> 
 
-            <img src={Icon3lineas} alt="Icon3lineas"/>
+            <Link to={"/crearreceta"}><img src={Icon3lineas} alt="IconCasa"/></Link> 
 
-            <img src={IconLapiz} alt="IconLapiz"/>
+            <Link to={"/editarreceta"}><img src={IconLapiz} alt="IconCasa"/></Link> 
           </div>
       </div>
     </>

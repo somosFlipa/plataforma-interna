@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import "./Botonesx2.css"
 
 import Btncrearlista from "../../Media/BtnCrearLista.svg"
@@ -10,7 +12,7 @@ function Botonesx2() {
      <>
         <div className='cont-btns-x2'>
             <div className='btnsx2'>
-                <img src={Btncrearlista} alt="btncrearlista" />
+                <Link to={"/crearreceta"} ><img src={Btncrearlista} alt="btncrearlista" /></Link>
                 <img src={Btncrearreceta} alt="btncrearlista" />
             </div>
         </div>
