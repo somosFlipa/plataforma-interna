@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import CargarPaso from './CargarPaso';
 
-
-
 function CargarIngredientes() {
-
     
     const [verPaso, setVerPaso] = useState (false)
 
