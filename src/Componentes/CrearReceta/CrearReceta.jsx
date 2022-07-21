@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./CrearReceta.css";
 
 import CargaReceta from './CargarReceta/CargaReceta';
-import HeaderSup from '../HeaderSup/HeaderSup';
+//import HeaderSup from '../HeaderSup/HeaderSup';
 import NavLateral from '../NavLateral/NavLateral';
 import Footer from '../Footer/Footer';
 import LogoP from '../Logo/Logo';

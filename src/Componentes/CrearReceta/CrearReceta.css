@@ -4,6 +4,7 @@
 }
 
 .menu-secundario{
+    display: inline;
     position: relative;
     top: 0px;
     left: 411px;
