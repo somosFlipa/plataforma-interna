@@ -14,16 +14,16 @@ function CargaReceta() {
     const [verIngredientes,setVerIngredientes] = useState(false)
 
     // conexion firebase
-    const productsCollection = collection(db, "recetas")
-    const store = async (e) => {
-        await addDoc( productsCollection, { nombre:nombre, candidadComendales:counter, tiempo:tiempo, dificultad:dificultad } )
-    }
+    // const productsCollection = collection(db, "recetas")
+    // const store = async (e) => {
+    //     await addDoc( productsCollection, { nombre:nombre, candidadComendales:counter, tiempo:tiempo, dificultad:dificultad } )
+    // }
 
     // se guarda en el localStorage (formulario)
-    const [nombre, setNombre] = useLocalStorage('text','')
-    // const [comendales, setComendales] = useLocalStorage('counter',{counter})
-    const [tiempo, setTiempo] = useLocalStorage ('number','')
-    const [dificultad,setDificultad] = useLocalStorage()
+    const [nombre, setNombre] = useLocalStorage('nombre','')
+    const [comendales, setComendales] = useLocalStorage('counter',{counter})
+    const [tiempo, setTiempo] = useLocalStorage ('tiempo',{tiempo})
+    const [dificultad,setDificultad] = useLocalStorage('dificultad',{dificultad})
 
     function cargarIngrediente() {
         setDatosIngredientes(true)
@@ -49,9 +49,9 @@ function CargaReceta() {
                         // setComendales(comendales - 1)
                     }}}>-</button>
 
-                    <p type="counter" name="comendales" value={counter}
-                    // value={comendales} onChange={e=>{setComendales(e.target.value)}}
-                    >{counter}</p>
+                    <p type="counter" name="comendales" value={comendales} onChange={e=>{setComendales(e.target.value)}}>
+                        {counter}
+                    </p>
                     <button onClick={() => { 
                             if (counter < 4) {
                             setCounter(counter + 1)
@@ -59,7 +59,7 @@ function CargaReceta() {
                         }}}>+</button>
                 </div>
                 <label>Tiempo de preparación</label>
-                <input type="number" placeholder='Ingresar tiempo' name="tiempo" value={tiempo} onChange={e=>{setTiempo(e.target.value)}}/>
+                <input type="number" placeholder='Ingresar tiempo' name="tiempo" value={tiempo} onChange={e=>{setTiempo(Number(e.target.value))}}/>
                 <select id="tiempo" name="tiempo">
                     <option value="min">minutos</option>
                 </select><br></br>
@@ -71,7 +71,8 @@ function CargaReceta() {
                 </select>
                 <button className='btn-agregar' onClick={()=>{
                     cargarIngrediente()
-                    store()}}>
+                    // store()
+                    }}>
                     GUARDAR
                 </button>
             </form> 

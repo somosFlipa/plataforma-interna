@@ -1,13 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import { collection, getDocs} from "firebase/firestore";
-import db from '../../firebase/firebase';
+// import { collection, getDocs} from "firebase/firestore";
+// import db from '../../firebase/firebase';
 
 export const Context = createContext({});
 
 export const ContextProvider = ({children}) => {
 
     const [recetas, setResetas] = useState([])
+    const [datos, setDatos] = useState([])
 
 // Llamar a todas las recetas
     // useEffect(() => {
@@ -25,12 +26,26 @@ export const ContextProvider = ({children}) => {
     //   }
     //   }, [recetas]);
 
+
+
+// ----Agrega los datos info de ingredientes
+    const addToInfo =({nombre,comentario,number,peso,proveedor})=> {
+        setDatos([
+            ...datos,
+            {
+                nombre,
+                comentario,
+                number,
+                peso,
+                proveedor
+            }]);
+    }
     
 
 
 
     return (
-        <Context.Provider value={{recetas}}>
+        <Context.Provider value={{recetas,addToInfo,datos}}>
             {children}
         </Context.Provider>
     )
