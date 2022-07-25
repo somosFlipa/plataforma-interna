@@ -8,7 +8,8 @@ export const Context = createContext({});
 export const ContextProvider = ({children}) => {
 
     const [recetas, setResetas] = useState([])
-    const [datos, setDatos] = useState([])
+    const [datosIngredientes, setDatosIngredientes] = useState([])
+    const [datoReceta, setDatosReceta] = useState([])
 
 // Llamar a todas las recetas
     // useEffect(() => {
@@ -26,12 +27,23 @@ export const ContextProvider = ({children}) => {
     //   }
     //   }, [recetas]);
 
-
+// ----Agrega los datos de recetas nueva
+const addToReceta =({nombre,comentario,number,peso,proveedor})=> {
+    setDatosReceta([
+        ...datoReceta,
+        {
+            nombre,
+            comentario,
+            number,
+            peso,
+            proveedor
+        }]);
+}
 
 // ----Agrega los datos info de ingredientes
-    const addToInfo =({nombre,comentario,number,peso,proveedor})=> {
-        setDatos([
-            ...datos,
+    const addToIngrediente =({nombre,comentario,number,peso,proveedor})=> {
+        setDatosIngredientes([
+            ...datosIngredientes,
             {
                 nombre,
                 comentario,
@@ -41,11 +53,11 @@ export const ContextProvider = ({children}) => {
             }]);
     }
     
-
+    // console.log("conext",datoReceta)
 
 
     return (
-        <Context.Provider value={{recetas,addToInfo,datos}}>
+        <Context.Provider value={{recetas,addToIngrediente ,datosIngredientes, addToReceta,datoReceta }}>
             {children}
         </Context.Provider>
     )

@@ -10,8 +10,7 @@ function CargarIngredientes() {
     
     const [verPaso, setVerPaso] = useState (false)
     const [ingredients, setIngredients] = useState([])
-    const [selec,setSelec] = useState([])
-   
+    const [selec,setSelec] = useState([]) 
 
     function agregarPasos (){
         setVerPaso(true)
@@ -34,12 +33,18 @@ function CargarIngredientes() {
     
     
     function handleSelecChange(e) {
-        setSelec([e.target.value])
+        const valor = e.target.value
+        selec.push(valor)
+        setSelec([...selec, selec])
+        // useEffect(()=>{
+        //     setSelec([...selec, selec])
+        // },[])
+    
         
     }
-    
 
     
+
     return (
         <>
         
@@ -56,6 +61,7 @@ function CargarIngredientes() {
                 
             }
         </select>
+
         {
             selec ?
                 selec.map((select)=>{
@@ -76,7 +82,6 @@ function CargarIngredientes() {
             :
             <p>nada</p>
         }
-        
         
         <button className='btn-agregar' onClick={() =>{agregarPasos()}}>GUARDAR</button>
     </form>

@@ -4,9 +4,8 @@ import { Context } from '../../Context/Context';
 
 function VerIngredients({select}) {
 
-    const {addToInfo,datos}= useContext(Context)
+    const {addToIngrediente ,datosIngredientes}= useContext(Context)
 
-    const [guardar, setGuardar] = useState([])
     const [state, setState] = useState({
         nombre: select,
         comentario:"",
@@ -25,7 +24,7 @@ function VerIngredients({select}) {
 
     function hasdelonClick(e){
          e.preventDefault()
-         addToInfo(state);
+         addToIngrediente (state);
     }
 
 
@@ -51,14 +50,15 @@ function VerIngredients({select}) {
         </form>
 
         {
-            datos ?
-            datos.map(datos=> (
+            datosIngredientes ?
+            datosIngredientes.map(datos=> (
                 <div>
-                    <span>{datos.nombre}</span>
-                    <span>{datos.comentario}</span>
-                    <span>{datos.number}</span>
-                    <span>{datos.peso}</span>
-                    <span>{datos.proveedor}</span>
+                    <span> {datos.nombre} </span>
+                    <span> {datos.comentario} </span>
+                    <span> {datos.number} </span>
+                    <span> {datos.peso} </span>
+                    <span> {datos.proveedor}</span>
+                    <button>X</button>
                 </div>
                 
             ))
