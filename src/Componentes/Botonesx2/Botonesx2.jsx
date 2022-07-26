@@ -12,8 +12,8 @@ function Botonesx2() {
      <>
         <div className='cont-btns-x2'>
             <div className='btnsx2'>
-                <Link to={"/crearreceta"} ><img src={Btncrearlista} alt="btncrearlista" /></Link>
-                <img src={Btncrearreceta} alt="btncrearlista" />
+                <Link to={"/crearlista"} ><img src={Btncrearlista} alt="btncrearlista" /></Link>
+                <Link to={"/crearreceta"} ><img src={Btncrearreceta} alt="btncrearlista" /></Link>
             </div>
         </div>
     </>

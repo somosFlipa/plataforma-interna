@@ -20,9 +20,9 @@ function NavLateral() {
           <div className='btns-iconos'>
             <Link to={"/"}><img src={IconCasa} alt="IconCasa"/></Link> 
 
-            <Link to={"/crearreceta"}><img src={Icon3lineas} alt="IconCasa"/></Link> 
+            <Link to={"/crearlista"}><img src={Icon3lineas} alt="IconCasa"/></Link> 
 
-            <Link to={"/editarreceta"}><img src={IconLapiz} alt="IconCasa"/></Link> 
+            <Link to={"/crearreceta"}><img src={IconLapiz} alt="IconCasa"/></Link> 
           </div>
       </div>
     </>

@@ -37,13 +37,13 @@ function CargaReceta() {
     <>
         {
             datosIngredientes === false ? 
-                <form className='datos' onSubmit={e =>{e.preventDefault()}}>
-                <label>Nombre de la receta</label>
-                <input type="text" placeholder='Escribir nombre de la receta' name="nombre" value={nombre} onChange={e=>{setNombre(e.target.value)}}/> 
+            <form className='datos-cargar-receta' onSubmit={e =>{e.preventDefault()}}>
+                <label className='titulo-cargar-receta'>Nombre de la receta</label>
+                <input className='input-nombre-receta' type="text" placeholder='Escribir nombre de la receta' name="nombre" value={nombre} onChange={e=>{setNombre(e.target.value)}}/> 
                 <br></br>
-                <label>Cantidad de comensales</label>
-                <div>
-                    <button onClick={() => {
+                <label className='titulo-cargar-receta'>Cantidad de comensales</label>
+                <div className="contador">
+                    <button className="btn-menos" onClick={() => {
                         if (counter > 1) {
                         setCounter(counter - 1)
                         // setComendales(comendales - 1)
@@ -52,46 +52,46 @@ function CargaReceta() {
                     <p type="counter" name="comendales" value={counter}
                     // value={comendales} onChange={e=>{setComendales(e.target.value)}}
                     >{counter}</p>
-                    <button onClick={() => { 
+                    <button className="btn-mas" onClick={() => { 
                             if (counter < 4) {
                             setCounter(counter + 1)
                             // setComendales(comendales + 1)
                         }}}>+</button>
                 </div>
-                <label>Tiempo de preparación</label>
-                <input type="number" placeholder='Ingresar tiempo' name="tiempo" value={tiempo} onChange={e=>{setTiempo(e.target.value)}}/>
-                <select id="tiempo" name="tiempo">
+                <label className='titulo-cargar-receta'>Tiempo de preparación</label>
+                <input className='input-tiempo-receta' type="number" placeholder='Ingresar tiempo' name="tiempo" value={tiempo} onChange={e=>{setTiempo(e.target.value)}}/>
+                <select className='select-tiempo-receta' id="tiempo" name="tiempo">
                     <option value="min">minutos</option>
                 </select><br></br>
-                <label>Dificultad</label>
-                <select id="dificultad" name="dificultad" value={dificultad} onChange={e=>{setDificultad(e.target.value)}}>
+                <label className='titulo-cargar-receta'>Dificultad</label>
+                <select className='input-nombre-receta' id="dificultad" name="dificultad" value={dificultad} onChange={e=>{setDificultad(e.target.value)}}>
                     <option value="bajo">bajo</option>
                     <option value="medio">medio</option>
                     <option value="alto">alto</option>
                 </select>
-                <button className='btn-agregar' onClick={()=>{
+                <button className='btn-agregar-sin-fondo' onClick={()=>{
                     cargarIngrediente()
                     store()}}>
                     GUARDAR
                 </button>
             </form> 
         :
-            <div className='datos'>
-                <p>No hay elementos</p>
-                    <button className='btn-agregar' onClick={() =>{agregarIngredientes()}}>
-                        + Agregar datos
-                    </button>
-            </div>
-            
-            
-        }
-       
+        <div className='datos'>
+        <p>No hay elementos</p>
+            <button className='btn-agregar-ingre' onClick={() =>{agregarIngredientes()}}>
+                + Agregar Ingredientes
+            </button>
+    </div>
+    
+    
+}
 
-           
-        {verIngredientes === true ?
-            <CargarIngredientes/> :
-        <p>No carges</p>
-        }
+
+   
+{verIngredientes === true ?
+    <CargarIngredientes/> :
+<p>No carges</p>
+}
     </>
   )
 }

@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 90px;
-    height: 778px;
+    height: 923px;
     position: absolute;
     top: 90px;
     left: 0;
@@ -38,6 +38,6 @@
 
 @media all and (min-width: 1560px){
     .cont-nav-lat{
-        height: 845px;
+        height: 980px;
     }
 }

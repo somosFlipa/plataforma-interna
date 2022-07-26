@@ -1,0 +1,14 @@
+.checkbox-card{
+    width: 30px;
+    height: 30px;
+    
+    margin-right: -800px;
+    margin-top: 20px;
+    margin-left: 22px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

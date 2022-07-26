@@ -7,6 +7,13 @@ import NavLateral from '../NavLateral/NavLateral';
 import Footer from '../Footer/Footer';
 import LogoP from '../Logo/Logo';
 
+/*      IMAGENES BOTONES        */
+import datosrecetas from "../../Media/btnDatosRecetas/Tab 4.svg"
+import ingredientes from "../../Media/btnDatosRecetas/Tab 2.svg"
+import procedimiento from "../../Media/btnDatosRecetas/Tab 3.svg"
+import imgreceta from "../../Media/btnDatosRecetas/Tab 6.svg"
+import prevvisualizar from "../../Media/btnDatosRecetas/Tab 7.svg"
+
 function CrearReceta() {
 
   const [datosRecetas, setDatosRecetas] = useState(false);
@@ -31,11 +38,11 @@ function CrearReceta() {
       <div className='cont-crearr-flex'>
 
         <div className='menu-secundario'>
-          <button id="datos">DATOS DE RECETAS</button>
-          <button id="ingredientes">INGREDIENTES</button>
-          <button id="procedimento">PROCEDIMENTO</button>
-          <button id="imagen">IMAGEN DE RECETA</button>
-          <button id="previsualizar">PREVISUALIZAR</button>
+          <button id="datos"><img src={datosrecetas} alt=''/></button>
+          <button id="ingredientes"><img src={ingredientes} alt=''/></button>
+          <button id="procedimento"><img src={procedimiento} alt=''/></button>
+          <button id="imagen"><img src={imgreceta} alt=''/></button>
+          <button id="previsualizar"><img src={prevvisualizar} alt=''/></button>
         </div>
         
         {

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import CargarImagen from './CargarImagen';
 
+import "./CargarPaso.css"
+
 function CargarPaso() {
     const [verImagen, setVerImagen] = useState(false)
 
@@ -10,16 +12,21 @@ function CargarPaso() {
 
   return (
     <>
+        <div className='div-p-titulo-proce'>
+            <p className='p-titulo-proce'>
+            DATOS DE PROCEDIMIENTOS
+            </p>
+        </div>
     
-        <form className='datos' onSubmit={e =>{e.preventDefault()}}>
-            <p>Agregar procedimiento</p>
-            <label>Paso 1:</label>
-            <textarea placeholder='Escriba aqui'></textarea>
-            <label>Paso 2:</label>
-            <textarea placeholder='Escriba aqui'></textarea>
-            <button>+Agregar pasos</button>
+        <form className='datos-cargarpasos' onSubmit={e =>{e.preventDefault()}}>
+            <p className='p-cargarpasos'>Agregar procedimiento</p>
+            <label className='label-cargarpasos'>Paso 1:</label>
+            <textarea className='txt-cargarpasos' placeholder='Escriba aqui'></textarea>
+            <label className='label-cargarpasos'>Paso 2:</label>
+            <textarea className='txt-cargarpasos' placeholder='Escriba aqui'></textarea>
+            <button className='btn-agregarpasos'>+Agregar pasos</button>
                     
-            <button className='btn-agregar' onClick={()=>{agregarImgen()}} >GUARDAR</button>
+            <button className='btn-agregar-sin-fondo' onClick={()=>{agregarImgen()}} >GUARDAR</button>
         </form> 
 
         {
