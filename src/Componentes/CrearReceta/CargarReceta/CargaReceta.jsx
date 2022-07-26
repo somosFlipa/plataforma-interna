@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './CargaReceta.css';
 import CargarIngredientes from './CargarIngredientes';
-import {useLocalStorage} from '../../../LocalStorage/LocalStorage';
+// import {useLocalStorage} from '../../../LocalStorage/LocalStorage';
+import { Context } from '../../Context/Context';
 
 // firebase
 import { collection, addDoc } from 'firebase/firestore';
@@ -13,24 +14,43 @@ function CargaReceta() {
     const [datosIngredientes, setDatosIngredientes] = useState(false);
     const [verIngredientes,setVerIngredientes] = useState(false)
 
+    const {addToReceta, addToComensales}= useContext(Context)
+
     // conexion firebase
-    const productsCollection = collection(db, "recetas")
-    const store = async (e) => {
-        await addDoc( productsCollection, { nombre:nombre, candidadComendales:counter, tiempo:tiempo, dificultad:dificultad } )
-    }
+    // const productsCollection = collection(db, "recetas")
+    // const store = async (e) => {
+    //     await addDoc( productsCollection, { nombre:nombre, candidadComendales:counter, tiempo:tiempo, dificultad:dificultad } )
+    // }
 
     // se guarda en el localStorage (formulario)
-    const [nombre, setNombre] = useLocalStorage('text','')
+    // const [nombre, setNombre] = useLocalStorage('nombre','')
     // const [comendales, setComendales] = useLocalStorage('counter',{counter})
-    const [tiempo, setTiempo] = useLocalStorage ('number','')
-    const [dificultad,setDificultad] = useLocalStorage()
+    // const [tiempo, setTiempo] = useLocalStorage ('tiempo',{tiempo})
+    // const [dificultad,setDificultad] = useLocalStorage('dificultad',{dificultad})
+
+    const [state, setState] = useState({
+        nombre: "",
+        tiempo: Number(""),
+        dificultad:""
+    });
+
 
     function cargarIngrediente() {
+        addToReceta(state)
+        addToComensales(counter)
         setDatosIngredientes(true)
+        
     }
 
     function agregarIngredientes() {
         setVerIngredientes(true)
+    }
+
+    function handleChange(e) {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
     }
  
   return (
@@ -39,7 +59,8 @@ function CargaReceta() {
             datosIngredientes === false ? 
             <form className='datos-cargar-receta' onSubmit={e =>{e.preventDefault()}}>
                 <label className='titulo-cargar-receta'>Nombre de la receta</label>
-                <input className='input-nombre-receta' type="text" placeholder='Escribir nombre de la receta' name="nombre" value={nombre} onChange={e=>{setNombre(e.target.value)}}/> 
+                <input className='input-nombre-receta' type="text" placeholder='Escribir nombre de la receta' name="nombre"  onChange={e=>{handleChange(e)}}/>  
+
                 <br></br>
                 <label className='titulo-cargar-receta'>Cantidad de comensales</label>
                 <div className="contador">
@@ -48,31 +69,29 @@ function CargaReceta() {
                         setCounter(counter - 1)
                         // setComendales(comendales - 1)
                     }}}>-</button>
-
-                    <p type="counter" name="comendales" value={counter}
-                    // value={comendales} onChange={e=>{setComendales(e.target.value)}}
-                    >{counter}</p>
+                    <p>{counter}</p>
                     <button className="btn-mas" onClick={() => { 
                             if (counter < 4) {
                             setCounter(counter + 1)
                             // setComendales(comendales + 1)
                         }}}>+</button>
                 </div>
+
                 <label className='titulo-cargar-receta'>Tiempo de preparación</label>
-                <input className='input-tiempo-receta' type="number" placeholder='Ingresar tiempo' name="tiempo" value={tiempo} onChange={e=>{setTiempo(e.target.value)}}/>
+                <input className='input-tiempo-receta' type="number" placeholder='Ingresar tiempo' name="tiempo"  onChange={e=>{handleChange(e)}}/>
                 <select className='select-tiempo-receta' id="tiempo" name="tiempo">
                     <option value="min">minutos</option>
                 </select><br></br>
                 <label className='titulo-cargar-receta'>Dificultad</label>
-                <select className='input-nombre-receta' id="dificultad" name="dificultad" value={dificultad} onChange={e=>{setDificultad(e.target.value)}}>
+                <select className='input-nombre-receta' id="dificultad" name="dificultad" onChange={e=>{handleChange(e)}}>
+                    <option value="">Eligue dificultad</option>
                     <option value="bajo">bajo</option>
                     <option value="medio">medio</option>
                     <option value="alto">alto</option>
                 </select>
                 <button className='btn-agregar-sin-fondo' onClick={()=>{
-                    cargarIngrediente()
-                    store()}}>
-                    GUARDAR
+                    cargarIngrediente();
+                    }}>GUARDAR
                 </button>
             </form> 
         :
