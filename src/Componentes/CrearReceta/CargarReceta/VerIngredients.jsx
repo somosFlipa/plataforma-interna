@@ -49,7 +49,7 @@ function VerIngredients({select}) {
             <button onClick={(e)=>{hasdelonClick(e)}}>Agregar</button>
         </form>
 
-        {
+        {/* {
             datosIngredientes ?
             datosIngredientes.map(datos=> (
                 <div>
@@ -64,7 +64,7 @@ function VerIngredients({select}) {
             ))
              :
             <p>nada</p>
-        }
+        } */}
     </>
   )
 }

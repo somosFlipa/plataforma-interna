@@ -13,6 +13,7 @@ function CargarIngredientes() {
     const [selec,setSelec] = useState([]) 
 
     function agregarPasos (){
+        
         setVerPaso(true)
         
     }
@@ -22,12 +23,13 @@ function CargarIngredientes() {
         const productsCollection = collection(db, "ingredientes")
         const getProducts = async ()   => {
         const data = await getDocs(productsCollection)
-        // console.log(data.docs)
         setIngredients(
             data.docs.map( (doc) => ( {...doc.data(),id:doc.id}))
         )
        }
         getProducts()
+
+        
 
     },[])
     
@@ -64,19 +66,10 @@ function CargarIngredientes() {
 
         {
             selec ?
-                selec.map((select)=>{
+                selec.map((select,key)=>{
 
                 return (
-                    <VerIngredients key={select} select={select}/>
-                // <div>
-                //     <p key={select}>{select}</p>
-                //     <input type="number" />
-                //     <select name="" id="">
-                //         <option value="gr">gr</option>
-                //         <option value="ml">ml</option>
-                //     </select>
-                // </div>
-                
+                    <VerIngredients key={key} select={select}/>
                 )
                 })
             :

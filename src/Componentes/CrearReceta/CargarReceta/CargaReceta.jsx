@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import './CargaReceta.css';
 import CargarIngredientes from './CargarIngredientes';
-import {useLocalStorage} from '../../../LocalStorage/LocalStorage';
+// import {useLocalStorage} from '../../../LocalStorage/LocalStorage';
 import { Context } from '../../Context/Context';
 
 // firebase
@@ -14,7 +14,7 @@ function CargaReceta() {
     const [datosIngredientes, setDatosIngredientes] = useState(false);
     const [verIngredientes,setVerIngredientes] = useState(false)
 
-    const {aaddToReceta,datoReceta}= useContext(Context)
+    const {addToReceta, addToComensales}= useContext(Context)
 
     // conexion firebase
     // const productsCollection = collection(db, "recetas")
@@ -23,18 +23,34 @@ function CargaReceta() {
     // }
 
     // se guarda en el localStorage (formulario)
-    const [nombre, setNombre] = useLocalStorage('nombre','')
-    const [comendales, setComendales] = useLocalStorage('counter',{counter})
-    const [tiempo, setTiempo] = useLocalStorage ('tiempo',{tiempo})
-    const [dificultad,setDificultad] = useLocalStorage('dificultad',{dificultad})
+    // const [nombre, setNombre] = useLocalStorage('nombre','')
+    // const [comendales, setComendales] = useLocalStorage('counter',{counter})
+    // const [tiempo, setTiempo] = useLocalStorage ('tiempo',{tiempo})
+    // const [dificultad,setDificultad] = useLocalStorage('dificultad',{dificultad})
+
+    const [state, setState] = useState({
+        nombre: "",
+        tiempo: Number(""),
+        dificultad:""
+    });
+
 
     function cargarIngrediente() {
+        addToReceta(state)
+        addToComensales(counter)
         setDatosIngredientes(true)
-        // datoReceta(aaddToReceta)
+        
     }
 
     function agregarIngredientes() {
         setVerIngredientes(true)
+    }
+
+    function handleChange(e) {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
     }
  
   return (
@@ -43,7 +59,7 @@ function CargaReceta() {
             datosIngredientes === false ? 
                 <form className='datos' onSubmit={e =>{e.preventDefault()}}>
                 <label>Nombre de la receta</label>
-                <input type="text" placeholder='Escribir nombre de la receta' name="nombre" value={nombre} onChange={e=>{setNombre(e.target.value)}}/> 
+                <input type="text" placeholder='Escribir nombre de la receta' name="nombre"  onChange={e=>{handleChange(e)}}/> 
                 <br></br>
                 <label>Cantidad de comensales</label>
                 <div>
@@ -53,9 +69,7 @@ function CargaReceta() {
                         // setComendales(comendales - 1)
                     }}}>-</button>
 
-                    <p type="counter" name="comendales" value={comendales} onChange={e=>{setComendales(e.target.value)}}>
-                        {counter}
-                    </p>
+                    <p>{counter}</p>
                     <button onClick={() => { 
                             if (counter < 4) {
                             setCounter(counter + 1)
@@ -63,19 +77,20 @@ function CargaReceta() {
                         }}}>+</button>
                 </div>
                 <label>Tiempo de preparación</label>
-                <input type="number" placeholder='Ingresar tiempo' name="tiempo" value={tiempo} onChange={e=>{setTiempo(Number(e.target.value))}}/>
+                <input type="number" placeholder='Ingresar tiempo' name="tiempo"  onChange={e=>{handleChange(e)}}/>
                 <select id="tiempo" name="tiempo">
+                    <option value="">Eligue tiempo</option>
                     <option value="min">minutos</option>
                 </select><br></br>
                 <label>Dificultad</label>
-                <select id="dificultad" name="dificultad" value={dificultad} onChange={e=>{setDificultad(e.target.value)}}>
+                <select id="dificultad" name="dificultad" onChange={e=>{handleChange(e)}}>
+                    <option value="">Eligue dificultad</option>
                     <option value="bajo">bajo</option>
                     <option value="medio">medio</option>
                     <option value="alto">alto</option>
                 </select>
                 <button className='btn-agregar' onClick={()=>{
-                    cargarIngrediente()
-                    // store()
+                    cargarIngrediente();
                     }}>
                     GUARDAR
                 </button>
