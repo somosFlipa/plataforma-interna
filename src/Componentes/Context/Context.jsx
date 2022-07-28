@@ -12,6 +12,7 @@ export const ContextProvider = ({children}) => {
     const [datoReceta, setDatosReceta] = useState([])
     const [comensales, setComensales] = useState([])
     const [pasos, setPasos] = useState([])
+    const [imgen, setImgen] = useState([])
 
 // Llamar a todas las recetas
     // useEffect(() => {
@@ -75,15 +76,20 @@ const addToPasos =({paso1, paso2, paso3, paso4, paso5})=> {
             
         }]);
 }
-    
+// ----Agrega la imagen
+const addToImagen =(ima)=> {
+    setImgen(
+        ima
+        );
+}
     //  console.log("conext",datoReceta)
     //  console.log("comendal",comensales)
     //  console.log("ingresientes",datosIngredientes)
     // console.log("pasos",pasos)
-
+    console.log("imagen",imgen)
     return (
         <Context.Provider value={{recetas, addToIngrediente ,datosIngredientes, addToReceta, datoReceta, 
-                            addToComensales, addToPasos }}>
+                            addToComensales, comensales, addToPasos, pasos, addToImagen, imgen }}>
             {children}
         </Context.Provider>
     )
