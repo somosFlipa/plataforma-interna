@@ -14,15 +14,24 @@ import procedimiento from "../../Media/btnDatosRecetas/Tab 3.svg"
 import imgreceta from "../../Media/btnDatosRecetas/Tab 6.svg"
 import prevvisualizar from "../../Media/btnDatosRecetas/Tab 7.svg"
 
+import svgpen from "../../Media/bxs_pencil.svg"
+
 function CrearReceta() {
 
   const [datosRecetas, setDatosRecetas] = useState(false);
 
   function agregarDatos() {
     setDatosRecetas(true)
+    
+    /*if(document.getElementById('#datos').Checked){
+      //document.getElementById('#datos').background="#000";
+      datos.style.background="#000";
+    }*/
 
   }
 
+ 
+  
   return (
     <>
       <LogoP/>
@@ -33,11 +42,14 @@ function CrearReceta() {
         </p>
       </div>
       {/*                      REUTILIZAR CODIGO PARA CADA PAG CON TITULO DIF     */}
+      <img className='pen-fondo' src={svgpen} alt="penazul" />
       <NavLateral/>
+      
 
       <div className='cont-crearr-flex'>
 
         <div className='menu-secundario'>
+          {/*<input type="image" src={datosrecetas} id="datos"></input>*/}
           <button id="datos"><img src={datosrecetas} alt=''/></button>
           <button id="ingredientes"><img src={ingredientes} alt=''/></button>
           <button id="procedimento"><img src={procedimiento} alt=''/></button>

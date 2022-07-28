@@ -12,3 +12,12 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+
+.casa-fondo{
+    z-index: 100;
+    position: absolute;
+    top: 346px;
+    left: 33px;
+
+    cursor: pointer;
+}

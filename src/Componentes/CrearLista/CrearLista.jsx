@@ -16,6 +16,8 @@ import ImgAlmuerzo from "../../Media/Almuerzo.svg"
 import ImgMerienda from "../../Media/Merienda.svg"
 import ImgCena from "../../Media/Cena.svg"
 
+import svgcasa from "../../Media/ant-design_home-filled.svg"
+
 //import changeColorBtn1 from '../../Utiles/BtnsColor';
 
 
@@ -43,6 +45,7 @@ function CrearLista() {
     <div>
       <LogoP/>
       <HeaderSup/>
+      <img className='casa-fondo' src={svgcasa} alt="" />
       <NavLateral/>
       <Botonesx2/>
       

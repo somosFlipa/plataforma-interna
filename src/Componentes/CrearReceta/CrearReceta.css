@@ -100,3 +100,19 @@
         width: 1665px;
     }
 }
+
+@media all and (min-width: 1900px){
+    .div-p-titulo{
+        width: 1650px;
+    }
+}
+
+
+.pen-fondo{
+    z-index: 100;
+    position: absolute;
+    top: 481px;
+    left: 32px;
+
+    cursor: pointer;
+}

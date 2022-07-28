@@ -49,3 +49,13 @@
 .filtro{
     display: none;
 }
+
+@media all and (min-width: 1900px){
+    .cont-header-sup{
+        width: 1650px;
+
+        position: relative;
+        /*top: -79px;
+        left: 252px;*/
+    }
+}
