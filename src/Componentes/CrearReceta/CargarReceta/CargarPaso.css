@@ -13,7 +13,7 @@
     height: 605px;
     
     background: #FFFFFF;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    /*box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);*/
     border-radius: 4px;
 
     padding-top: 36px;
@@ -91,7 +91,7 @@
     width: 1186px;
 
     background-color: #fff;
-    box-shadow: 0px 4px 15px rgba(202, 193, 193, 0.45);
+    /*box-shadow: 0px 4px 15px rgba(202, 193, 193, 0.45);*/
 
     position: relative;
     top: -269px;

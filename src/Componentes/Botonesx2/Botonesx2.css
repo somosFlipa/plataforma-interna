@@ -1,8 +1,8 @@
 .cont-btns-x2{
     display: inline;
     position: relative;
-    left: 1040px;
-    top: -4px;
+    left: 1000px;
+    top: 15px;
 }
 
 .btnsx2{
@@ -20,6 +20,17 @@
 
 @media all and (min-width: 1560px){
     .cont-btns-x2{
+        left: 10px;
+    }
+}
+
+@media all and (min-width: 1900px){
+    .cont-btns-x2{
         left: 1500px;
+        top: 20px;
+    }
+
+    .btnsx2{
+        display: inline-block;   
     }
 }
