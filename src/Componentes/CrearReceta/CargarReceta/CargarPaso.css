@@ -76,6 +76,10 @@
     color: #383838;
 }
 
+.btn-sacar{
+    display: none;
+}
+
 /*                               REUTILIZAR CODIGO PARA CADA PAG CON TITULO DIF */
 
 .div-p-titulo-proce{

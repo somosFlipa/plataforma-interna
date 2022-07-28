@@ -11,6 +11,7 @@ export const ContextProvider = ({children}) => {
     const [datosIngredientes, setDatosIngredientes] = useState([])
     const [datoReceta, setDatosReceta] = useState([])
     const [comensales, setComensales] = useState([])
+    const [pasos, setPasos] = useState([])
 
 // Llamar a todas las recetas
     // useEffect(() => {
@@ -60,13 +61,29 @@ const addToComensales =(comensal)=> {
                 proveedor
             }]);
     }
+
+// ----Agrega los datos de los pasos
+const addToPasos =({paso1, paso2, paso3, paso4, paso5})=> {
+    setPasos([
+        ...pasos,
+        {
+            paso1, 
+            paso2, 
+            paso3, 
+            paso4,
+            paso5
+            
+        }]);
+}
     
-     console.log("conext",datoReceta)
-     console.log("comendal",comensales)
-     console.log("ingresientes",datosIngredientes)
+    //  console.log("conext",datoReceta)
+    //  console.log("comendal",comensales)
+    //  console.log("ingresientes",datosIngredientes)
+    // console.log("pasos",pasos)
 
     return (
-        <Context.Provider value={{recetas,addToIngrediente ,datosIngredientes, addToReceta, datoReceta, addToComensales }}>
+        <Context.Provider value={{recetas, addToIngrediente ,datosIngredientes, addToReceta, datoReceta, 
+                            addToComensales, addToPasos }}>
             {children}
         </Context.Provider>
     )

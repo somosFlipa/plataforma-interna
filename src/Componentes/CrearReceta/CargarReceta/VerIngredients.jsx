@@ -1,10 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Context } from '../../Context/Context';
+
+// firebase
+import {collection, getDocs} from 'firebase/firestore';
+import {db} from '../../../firebase/firebase';
+
 
 
 function VerIngredients({select}) {
 
     const {addToIngrediente ,datosIngredientes}= useContext(Context)
+    const [medida, setMedida] = useState([])
 
     const [state, setState] = useState({
         nombre: select,
@@ -14,6 +20,20 @@ function VerIngredients({select}) {
         proveedor:""
     });
 
+     //Firebase
+     useEffect(()=>{
+        const productsCollection = collection(db, "medidas")
+        const getProducts = async ()   => {
+        const data = await getDocs(productsCollection)
+        setMedida(
+            data.docs.map( (doc) => ( {...doc.data(),id:doc.id}))
+        )
+       }
+        getProducts()
+
+        
+
+    },[]) 
 
     function handleChange(e) {
         setState({
@@ -36,9 +56,14 @@ function VerIngredients({select}) {
             <textarea name="comentario" id="" cols="10" rows="5" placeholder='comentario de ingrediente'onChange={(e) => handleChange(e)} ></textarea>
             <input type="number" name="number" onChange={(e) => handleChange(e)} />
             <select name="peso"id=""  onChange={(e) => handleChange(e)}>
-                    <option value="elegir">elegir unidad</option>
-                    <option value="gr">gr</option>
-                    <option value="ml">ml</option>
+                <option  value="">Elegi la unidad</option>
+                {
+                    medida.map((m) =>(
+                            <option key={m.id} value={m.medida} 
+                            >{m.medida}  </option>
+                    ))
+                }
+                    
             </select>
             <select name="proveedor" id="" placeholder='elegir proveedor' onChange={(e) => handleChange(e)} >
                     <option value="elegir">elegir proveedor</option>

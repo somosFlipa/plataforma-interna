@@ -5,7 +5,7 @@ import "./CargarIngredientes.css"
 
 // firebase
 import {collection, getDocs} from 'firebase/firestore';
-import db from '../../../firebase/firebase';
+import {db} from '../../../firebase/firebase';
 import VerIngredients from './VerIngredients';
 
 
@@ -23,7 +23,7 @@ function CargarIngredientes() {
 
     //Firebase
     useEffect(()=>{
-        const productsCollection = collection(db, "ingredientes")
+        const productsCollection = collection(db, "ingredientes2")
         const getProducts = async ()   => {
         const data = await getDocs(productsCollection)
         setIngredients(
@@ -38,17 +38,9 @@ function CargarIngredientes() {
     
     
     function handleSelecChange(e) {
-        const valor = e.target.value
-        selec.push(valor)
-        setSelec([...selec, selec])
-        // useEffect(()=>{
-        //     setSelec([...selec, selec])
-        // },[])
-    
-        
+        const valor = e.target.value;
+        setSelec([...selec,valor]) 
     }
-
-    
 
     return (
         <>

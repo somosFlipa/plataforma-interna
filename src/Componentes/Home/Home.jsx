@@ -3,7 +3,7 @@ import "./Home.css"
 
 import Card from '../Card/Card';
 import { collection, getDocs, query, where } from "firebase/firestore";
-import db from '../../firebase/firebase';
+import {db} from '../../firebase/firebase';
 
 import HeaderSup from '../HeaderSup/HeaderSup';
 import LogoP from '../Logo/Logo';
